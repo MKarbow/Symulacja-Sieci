@@ -87,6 +87,7 @@ build cmake_object_order_depends_target_Symulacja_Sieci: phony || CMakeFiles/Sym
 build CMakeFiles/Symulacja_Sieci.dir/main.cpp.obj: CXX_COMPILER__Symulacja_Sieci_Debug C$:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/main.cpp || cmake_object_order_depends_target_Symulacja_Sieci
   DEP_FILE = CMakeFiles\Symulacja_Sieci.dir\main.cpp.obj.d
   FLAGS = -g -std=gnu++17
+  INCLUDES = -IC:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/include
   OBJECT_DIR = CMakeFiles\Symulacja_Sieci.dir
   OBJECT_FILE_DIR = CMakeFiles\Symulacja_Sieci.dir
 
@@ -260,7 +261,7 @@ build cmake_object_order_depends_target_gmock_main: phony || cmake_object_order_
 build googletest-master/googlemock/CMakeFiles/gmock_main.dir/src/gmock_main.cc.obj: CXX_COMPILER__gmock_main_Debug C$:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/googletest-master/googlemock/src/gmock_main.cc || cmake_object_order_depends_target_gmock_main
   DEP_FILE = googletest-master\googlemock\CMakeFiles\gmock_main.dir\src\gmock_main.cc.obj.d
   FLAGS = -g -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++17
-  INCLUDES = -isystem C:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/googletest-master/googlemock/include -isystem C:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/googletest-master/googlemock -isystem C:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/googletest-master/googletest/include -isystem C:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/googletest-master/googletest
+  INCLUDES = -IC:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/include -isystem C:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/googletest-master/googlemock/include -isystem C:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/googletest-master/googlemock -isystem C:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/googletest-master/googletest/include -isystem C:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/googletest-master/googletest
   OBJECT_DIR = googletest-master\googlemock\CMakeFiles\gmock_main.dir
   OBJECT_FILE_DIR = googletest-master\googlemock\CMakeFiles\gmock_main.dir\src
 
@@ -292,7 +293,7 @@ build cmake_object_order_depends_target_gmock: phony || cmake_object_order_depen
 build googletest-master/googlemock/CMakeFiles/gmock.dir/src/gmock-all.cc.obj: CXX_COMPILER__gmock_Debug C$:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/googletest-master/googlemock/src/gmock-all.cc || cmake_object_order_depends_target_gmock
   DEP_FILE = googletest-master\googlemock\CMakeFiles\gmock.dir\src\gmock-all.cc.obj.d
   FLAGS = -g -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++17
-  INCLUDES = -IC:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/googletest-master/googlemock/include -IC:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/googletest-master/googlemock -isystem C:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/googletest-master/googletest/include -isystem C:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/googletest-master/googletest
+  INCLUDES = -IC:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/include -IC:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/googletest-master/googlemock/include -IC:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/googletest-master/googlemock -isystem C:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/googletest-master/googletest/include -isystem C:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/googletest-master/googletest
   OBJECT_DIR = googletest-master\googlemock\CMakeFiles\gmock.dir
   OBJECT_FILE_DIR = googletest-master\googlemock\CMakeFiles\gmock.dir\src
 
@@ -365,7 +366,7 @@ build cmake_object_order_depends_target_gtest: phony || googletest-master/google
 build googletest-master/googletest/CMakeFiles/gtest.dir/src/gtest-all.cc.obj: CXX_COMPILER__gtest_Debug C$:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/googletest-master/googletest/src/gtest-all.cc || cmake_object_order_depends_target_gtest
   DEP_FILE = googletest-master\googletest\CMakeFiles\gtest.dir\src\gtest-all.cc.obj.d
   FLAGS = -g -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++17
-  INCLUDES = -IC:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/googletest-master/googletest/include -IC:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/googletest-master/googletest
+  INCLUDES = -IC:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/include -IC:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/googletest-master/googletest/include -IC:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/googletest-master/googletest
   OBJECT_DIR = googletest-master\googletest\CMakeFiles\gtest.dir
   OBJECT_FILE_DIR = googletest-master\googletest\CMakeFiles\gtest.dir\src
 
@@ -397,7 +398,7 @@ build cmake_object_order_depends_target_gtest_main: phony || cmake_object_order_
 build googletest-master/googletest/CMakeFiles/gtest_main.dir/src/gtest_main.cc.obj: CXX_COMPILER__gtest_main_Debug C$:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/googletest-master/googletest/src/gtest_main.cc || cmake_object_order_depends_target_gtest_main
   DEP_FILE = googletest-master\googletest\CMakeFiles\gtest_main.dir\src\gtest_main.cc.obj.d
   FLAGS = -g -Wall -Wshadow -Wno-error=dangling-else -DGTEST_HAS_PTHREAD=0 -fexceptions -Wextra -Wno-unused-parameter -Wno-missing-field-initializers -std=c++17
-  INCLUDES = -isystem C:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/googletest-master/googletest/include -isystem C:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/googletest-master/googletest
+  INCLUDES = -IC:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/include -isystem C:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/googletest-master/googletest/include -isystem C:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/googletest-master/googletest
   OBJECT_DIR = googletest-master\googletest\CMakeFiles\gtest_main.dir
   OBJECT_FILE_DIR = googletest-master\googletest\CMakeFiles\gtest_main.dir\src
 

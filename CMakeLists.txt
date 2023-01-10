@@ -5,14 +5,11 @@ set(CMAKE_CXX_STANDARD 17)
 
 add_executable(Symulacja_Sieci main.cpp)
 
+include_directories(include)
 
 set(SOURCE_FILES
         src/package.cpp
         src/storage_types.cpp
-        include/package.hpp
-        include/storage_types.hpp
-        include/types.hpp
-        include/config.hpp
         )
 
 set(SOURCE_FILES_TESTS
