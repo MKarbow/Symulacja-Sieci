@@ -1,34 +1,45 @@
 #include "package.hpp"
 
-std::set<ElementID> Package::assigned_IDs = {};
-std::set<ElementID> Package::freed_IDs = {};
 
-Package::Package() noexcept {
-    if (assigned_IDs.empty() && freed_IDs.empty()) {
-        ID_ = 1;
-        assigned_IDs.insert(ID_);
+
+Package::Package() {
+    ElementID newId = BLANK_ID;
+    if (!freed_IDs.empty()) {
+        newId = *(freed_IDs.begin());
+        freed_IDs.erase(newId);
     }
-    else if (!freed_IDs.empty()) {
-        ID_ = freed_IDs.erase(*freed_IDs.begin());
+    else {
+        newId = *assigned_IDs.rbegin() + 1;
     }
-    else if (!assigned_IDs.empty()) {
-        ID_ = *assigned_IDs.end() + 1;
-        assigned_IDs.insert(ID_);
-    }
+    assigned_IDs.insert(newId);
+    id_ = newId;
 }
 
-Package::Package(ElementID ID) : ID_(ID) {}
+Package::Package(ElementID id) {
+    assigned_IDs.insert(id);
+    id_ = id;
+}
 
-Package::Package(Package&& package) noexcept : ID_(std::move(package.ID_)){}
 
-Package & Package::operator=(Package&& package) noexcept {
-    if (this == &package)
-        return *this;
-    this->ID_ = std::move(package.ID_);
+Package::Package(Package && package) noexcept {
+    id_ = package.id_;
+    package.id_ = BLANK_ID;
+}
+
+Package &Package::operator=(Package && package) noexcept {
+    if (id_ != BLANK_ID) {
+        assigned_IDs.erase(id_);
+        freed_IDs.insert(id_);
+    }
+    id_ = package.id_;
+    package.id_ = BLANK_ID;
+
     return *this;
 }
 
 Package::~Package() {
-    freed_IDs.insert(ID_);
-    assigned_IDs.erase(ID_);
+    if (id_ != BLANK_ID) {
+        freed_IDs.insert(id_);
+        assigned_IDs.erase(id_);
+    }
 }
