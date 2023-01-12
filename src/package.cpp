@@ -1,4 +1,3 @@
-
 #include "package.hpp"
 
 std::set<ElementID> Package::assigned_IDs = {};
