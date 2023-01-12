@@ -1,4 +1,3 @@
-
 #ifndef SIECI_PACKAGE_HPP
 #define SIECI_PACKAGE_HPP
 
@@ -8,19 +7,19 @@
 
 class Package {
 public:
-    explicit Package() noexcept;
-    Package(ElementID ID);
-    Package(Package && package) noexcept;
-    Package & operator=(Package && package) noexcept;
-    ElementID get_id() const { return ID_; }
+    Package();
+    Package(ElementID);
+    Package(Package&&) noexcept;
+    Package(Package&) = delete;
+    Package& operator=(Package&&) noexcept;
+    Package& operator=(Package&) = delete;
+    ElementID get_id() {return id_;}
     ~Package();
 private:
-    ElementID ID_;
-    static std::set<ElementID> assigned_IDs;
-    static std::set<ElementID> freed_IDs;
+    ElementID id_;
+    inline static std::set<ElementID> assigned_IDs{0};
+    inline static std::set<ElementID> freed_IDs;
+    static const ElementID BLANK_ID = -1;
 };
 
-#endif
-
-
-
+#endif //SIECI_PACKAGE_HPP

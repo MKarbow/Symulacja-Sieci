@@ -1,10 +1,9 @@
-
 #ifndef SIECI_STORAGE_TYPES_HPP
 #define SIECI_STORAGE_TYPES_HPP
 
 #include "package.hpp"
-#include "types.hpp"
 #include <list>
+#include "types.hpp"
 #include <utility>
 #include <stack>
 
@@ -49,4 +48,4 @@ private:
     PackageQueueType packageQueueType;
 };
 
-#endif
+#endif //SIECI_TYPES_HPP

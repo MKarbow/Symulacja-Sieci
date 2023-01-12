@@ -1,5 +1,5 @@
-
 #include "storage_types.hpp"
+
 
 PackageQueue::PackageQueue(PackageQueueType package_queue_type) {
     switch(package_queue_type) {
@@ -26,12 +26,12 @@ Package PackageQueue::pop() {
 
     switch (packageQueueType) {
         case PackageQueueType::FIFO :
-            package_that_is_erased = std::move(*products_.begin());
+            package_that_is_erased = std::move(products_.front());
             products_.pop_front();
             break;
 
         case PackageQueueType::LIFO :
-            package_that_is_erased = std::move(*products_.end());
+            package_that_is_erased = std::move(products_.back());
             products_.pop_back();
             break;
     }
@@ -52,4 +52,3 @@ std::size_t PackageQueue::size() {
 
     return size_of_container;
 }
-
