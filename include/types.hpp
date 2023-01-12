@@ -5,5 +5,5 @@
 #include <functional>
 
 using ElementID = unsigned int;
-#endif //SIECI_TYPES_HPP
 
+#endif //SIECI_TYPES_HPP

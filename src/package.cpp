@@ -1,3 +1,4 @@
+
 #include "package.hpp"
 
 std::set<ElementID> Package::assigned_IDs = {};
@@ -32,4 +33,3 @@ Package::~Package() {
     freed_IDs.insert(ID_);
     assigned_IDs.erase(ID_);
 }
-
