@@ -91,6 +91,20 @@ build CMakeFiles/Symulacja_Sieci.dir/main.cpp.obj: CXX_COMPILER__Symulacja_Sieci
   OBJECT_DIR = CMakeFiles\Symulacja_Sieci.dir
   OBJECT_FILE_DIR = CMakeFiles\Symulacja_Sieci.dir
 
+build CMakeFiles/Symulacja_Sieci.dir/src/helpers.cpp.obj: CXX_COMPILER__Symulacja_Sieci_Debug C$:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/src/helpers.cpp || cmake_object_order_depends_target_Symulacja_Sieci
+  DEP_FILE = CMakeFiles\Symulacja_Sieci.dir\src\helpers.cpp.obj.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -IC:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/include
+  OBJECT_DIR = CMakeFiles\Symulacja_Sieci.dir
+  OBJECT_FILE_DIR = CMakeFiles\Symulacja_Sieci.dir\src
+
+build CMakeFiles/Symulacja_Sieci.dir/src/nodes.cpp.obj: CXX_COMPILER__Symulacja_Sieci_Debug C$:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/src/nodes.cpp || cmake_object_order_depends_target_Symulacja_Sieci
+  DEP_FILE = CMakeFiles\Symulacja_Sieci.dir\src\nodes.cpp.obj.d
+  FLAGS = -g -std=gnu++17
+  INCLUDES = -IC:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/include
+  OBJECT_DIR = CMakeFiles\Symulacja_Sieci.dir
+  OBJECT_FILE_DIR = CMakeFiles\Symulacja_Sieci.dir\src
+
 build CMakeFiles/Symulacja_Sieci.dir/src/package.cpp.obj: CXX_COMPILER__Symulacja_Sieci_Debug C$:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/src/package.cpp || cmake_object_order_depends_target_Symulacja_Sieci
   DEP_FILE = CMakeFiles\Symulacja_Sieci.dir\src\package.cpp.obj.d
   FLAGS = -g -std=gnu++17
@@ -113,7 +127,7 @@ build CMakeFiles/Symulacja_Sieci.dir/src/storage_types.cpp.obj: CXX_COMPILER__Sy
 #############################################
 # Link the executable Symulacja_Sieci.exe
 
-build Symulacja_Sieci.exe: CXX_EXECUTABLE_LINKER__Symulacja_Sieci_Debug CMakeFiles/Symulacja_Sieci.dir/main.cpp.obj CMakeFiles/Symulacja_Sieci.dir/src/package.cpp.obj CMakeFiles/Symulacja_Sieci.dir/src/storage_types.cpp.obj
+build Symulacja_Sieci.exe: CXX_EXECUTABLE_LINKER__Symulacja_Sieci_Debug CMakeFiles/Symulacja_Sieci.dir/main.cpp.obj CMakeFiles/Symulacja_Sieci.dir/src/helpers.cpp.obj CMakeFiles/Symulacja_Sieci.dir/src/nodes.cpp.obj CMakeFiles/Symulacja_Sieci.dir/src/package.cpp.obj CMakeFiles/Symulacja_Sieci.dir/src/storage_types.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Symulacja_Sieci.dir
@@ -212,6 +226,14 @@ build CMakeFiles/Sieci_test.dir/test/test_storage_types.cpp.obj: CXX_COMPILER__S
   OBJECT_DIR = CMakeFiles\Sieci_test.dir
   OBJECT_FILE_DIR = CMakeFiles\Sieci_test.dir\test
 
+build CMakeFiles/Sieci_test.dir/test/test_nodes.cpp.obj: CXX_COMPILER__Sieci_test_Debug C$:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/test/test_nodes.cpp || cmake_object_order_depends_target_Sieci_test
+  DEFINES = -DEXERCISE_ID=1
+  DEP_FILE = CMakeFiles\Sieci_test.dir\test\test_nodes.cpp.obj.d
+  FLAGS = -g -Wall -Wextra -Werror -Wpedantic -pedantic-errors -std=gnu++17
+  INCLUDES = -IC:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/include -IC:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/mocks -isystem C:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/googletest-master/googlemock/include -isystem C:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/googletest-master/googletest/include -isystem C:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/googletest-master/googlemock -isystem C:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/googletest-master/googletest
+  OBJECT_DIR = CMakeFiles\Sieci_test.dir
+  OBJECT_FILE_DIR = CMakeFiles\Sieci_test.dir\test
+
 build CMakeFiles/Sieci_test.dir/test/main_gtest.cpp.obj: CXX_COMPILER__Sieci_test_Debug C$:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/test/main_gtest.cpp || cmake_object_order_depends_target_Sieci_test
   DEFINES = -DEXERCISE_ID=1
   DEP_FILE = CMakeFiles\Sieci_test.dir\test\main_gtest.cpp.obj.d
@@ -228,7 +250,7 @@ build CMakeFiles/Sieci_test.dir/test/main_gtest.cpp.obj: CXX_COMPILER__Sieci_tes
 #############################################
 # Link the executable Sieci_test.exe
 
-build Sieci_test.exe: CXX_EXECUTABLE_LINKER__Sieci_test_Debug CMakeFiles/Sieci_test.dir/src/package.cpp.obj CMakeFiles/Sieci_test.dir/src/storage_types.cpp.obj CMakeFiles/Sieci_test.dir/test/test_package.cpp.obj CMakeFiles/Sieci_test.dir/test/test_storage_types.cpp.obj CMakeFiles/Sieci_test.dir/test/main_gtest.cpp.obj | lib/libgmock.a lib/libgtest.a || lib/libgmock.a lib/libgtest.a
+build Sieci_test.exe: CXX_EXECUTABLE_LINKER__Sieci_test_Debug CMakeFiles/Sieci_test.dir/src/package.cpp.obj CMakeFiles/Sieci_test.dir/src/storage_types.cpp.obj CMakeFiles/Sieci_test.dir/test/test_package.cpp.obj CMakeFiles/Sieci_test.dir/test/test_storage_types.cpp.obj CMakeFiles/Sieci_test.dir/test/test_nodes.cpp.obj CMakeFiles/Sieci_test.dir/test/main_gtest.cpp.obj | lib/libgmock.a lib/libgtest.a || lib/libgmock.a lib/libgtest.a
   FLAGS = -g
   LINK_LIBRARIES = lib/libgmock.a  lib/libgtest.a  -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Sieci_test.dir
