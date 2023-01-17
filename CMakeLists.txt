@@ -3,7 +3,7 @@ project(Symulacja_Sieci)
 
 set(CMAKE_CXX_STANDARD 17)
 
-add_executable(Symulacja_Sieci main.cpp src/helpers.cpp src/nodes.cpp src/package.cpp src/storage_types.cpp include/config.hpp include/types.hpp include/package.hpp include/storage_types.hpp include/helpers.hpp include/nodes.hpp)
+add_executable(Symulacja_Sieci main.cpp mocks/nodes_mocks.hpp mocks/global_functions_mock.hpp src/helpers.cpp src/nodes.cpp src/package.cpp src/storage_types.cpp include/config.hpp include/types.hpp include/package.hpp include/storage_types.hpp include/helpers.hpp include/nodes.hpp)
 
 add_compile_options(-Wall -Wextra -Werror -Wpedantic -pedantic-errors)
 
@@ -34,4 +34,4 @@ add_subdirectory(googletest-master)
 
 target_link_libraries(Sieci_test gmock)
 
-target_compile_definitions(Sieci_test PUBLIC EXERCISE_ID=1)
+target_compile_definitions(Sieci_test PUBLIC EXERCISE_ID=2)
