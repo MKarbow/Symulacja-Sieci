@@ -1,4 +1,4 @@
-# Install script for directory: C:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/googletest-master/googletest
+# Install script for directory: D:/szkola/s3/zaawansowane_programowanie_obiektowe/s1/Symulacja-Sieci/googletest-master/googletest
 
 # Set the install prefix
 if(NOT DEFINED CMAKE_INSTALL_PREFIX)
@@ -34,14 +34,14 @@ endif()
 
 # Set default install directory permissions.
 if(NOT DEFINED CMAKE_OBJDUMP)
-  set(CMAKE_OBJDUMP "C:/Program Files/JetBrains/CLion 2021.3.4/bin/mingw/bin/objdump.exe")
+  set(CMAKE_OBJDUMP "C:/Program Files/JetBrains/CLion 2021.3.3/bin/mingw/bin/objdump.exe")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   if(EXISTS "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/GTest/GTestTargets.cmake")
     file(DIFFERENT EXPORT_FILE_CHANGED FILES
          "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/GTest/GTestTargets.cmake"
-         "C:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/cmake-build-debug/googletest-master/googletest/CMakeFiles/Export/lib/cmake/GTest/GTestTargets.cmake")
+         "D:/szkola/s3/zaawansowane_programowanie_obiektowe/s1/Symulacja-Sieci/cmake-build-debug/googletest-master/googletest/CMakeFiles/Export/lib/cmake/GTest/GTestTargets.cmake")
     if(EXPORT_FILE_CHANGED)
       file(GLOB OLD_CONFIG_FILES "$ENV{DESTDIR}${CMAKE_INSTALL_PREFIX}/lib/cmake/GTest/GTestTargets-*.cmake")
       if(OLD_CONFIG_FILES)
@@ -50,36 +50,36 @@ if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_
       endif()
     endif()
   endif()
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/GTest" TYPE FILE FILES "C:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/cmake-build-debug/googletest-master/googletest/CMakeFiles/Export/lib/cmake/GTest/GTestTargets.cmake")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/GTest" TYPE FILE FILES "D:/szkola/s3/zaawansowane_programowanie_obiektowe/s1/Symulacja-Sieci/cmake-build-debug/googletest-master/googletest/CMakeFiles/Export/lib/cmake/GTest/GTestTargets.cmake")
   if("${CMAKE_INSTALL_CONFIG_NAME}" MATCHES "^([Dd][Ee][Bb][Uu][Gg])$")
-    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/GTest" TYPE FILE FILES "C:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/cmake-build-debug/googletest-master/googletest/CMakeFiles/Export/lib/cmake/GTest/GTestTargets-debug.cmake")
+    file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/GTest" TYPE FILE FILES "D:/szkola/s3/zaawansowane_programowanie_obiektowe/s1/Symulacja-Sieci/cmake-build-debug/googletest-master/googletest/CMakeFiles/Export/lib/cmake/GTest/GTestTargets-debug.cmake")
   endif()
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
   file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/cmake/GTest" TYPE FILE FILES
-    "C:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/cmake-build-debug/googletest-master/googletest/generated/GTestConfigVersion.cmake"
-    "C:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/cmake-build-debug/googletest-master/googletest/generated/GTestConfig.cmake"
+    "D:/szkola/s3/zaawansowane_programowanie_obiektowe/s1/Symulacja-Sieci/cmake-build-debug/googletest-master/googletest/generated/GTestConfigVersion.cmake"
+    "D:/szkola/s3/zaawansowane_programowanie_obiektowe/s1/Symulacja-Sieci/cmake-build-debug/googletest-master/googletest/generated/GTestConfig.cmake"
     )
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "C:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/googletest-master/googletest/include/")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/include" TYPE DIRECTORY FILES "D:/szkola/s3/zaawansowane_programowanie_obiektowe/s1/Symulacja-Sieci/googletest-master/googletest/include/")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "C:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/cmake-build-debug/lib/libgtest.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "D:/szkola/s3/zaawansowane_programowanie_obiektowe/s1/Symulacja-Sieci/cmake-build-debug/lib/libgtest.a")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "C:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/cmake-build-debug/lib/libgtest_main.a")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib" TYPE STATIC_LIBRARY FILES "D:/szkola/s3/zaawansowane_programowanie_obiektowe/s1/Symulacja-Sieci/cmake-build-debug/lib/libgtest_main.a")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "C:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/cmake-build-debug/googletest-master/googletest/generated/gtest.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "D:/szkola/s3/zaawansowane_programowanie_obiektowe/s1/Symulacja-Sieci/cmake-build-debug/googletest-master/googletest/generated/gtest.pc")
 endif()
 
 if("x${CMAKE_INSTALL_COMPONENT}x" STREQUAL "xUnspecifiedx" OR NOT CMAKE_INSTALL_COMPONENT)
-  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "C:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/cmake-build-debug/googletest-master/googletest/generated/gtest_main.pc")
+  file(INSTALL DESTINATION "${CMAKE_INSTALL_PREFIX}/lib/pkgconfig" TYPE FILE FILES "D:/szkola/s3/zaawansowane_programowanie_obiektowe/s1/Symulacja-Sieci/cmake-build-debug/googletest-master/googletest/generated/gtest_main.pc")
 endif()
 

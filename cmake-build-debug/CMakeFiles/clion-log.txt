@@ -1,4 +1,4 @@
-"C:\Program Files\JetBrains\CLion 2021.3.4\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug "-DCMAKE_MAKE_PROGRAM=C:/Program Files/JetBrains/CLion 2021.3.4/bin/ninja/win/ninja.exe" -G Ninja C:\Users\adamj\Desktop\Zpo\Symulacja-Sieci
+"C:\Program Files\JetBrains\CLion 2021.3.3\bin\cmake\win\bin\cmake.exe" -DCMAKE_BUILD_TYPE=Debug -G "CodeBlocks - MinGW Makefiles" D:\szkola\s3\zaawansowane_programowanie_obiektowe\s1\Symulacja-Sieci
 -- Configuring done
 -- Generating done
--- Build files have been written to: C:/Users/adamj/Desktop/Zpo/Symulacja-Sieci/cmake-build-debug
+-- Build files have been written to: D:/szkola/s3/zaawansowane_programowanie_obiektowe/s1/Symulacja-Sieci/cmake-build-debug

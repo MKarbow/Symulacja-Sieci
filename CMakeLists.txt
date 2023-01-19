@@ -19,7 +19,7 @@ add_executable(Sieci main.cpp ${SOURCE_FILES})
 set(SOURCE_FILES_TESTS
         test/test_package.cpp
         test/test_storage_types.cpp
-        )
+        include/nodes.hpp src/nodes.cpp)
 
 add_executable(Sieci_test ${SOURCE_FILES} ${SOURCE_FILES_TESTS} test/main_gtest.cpp)
 
