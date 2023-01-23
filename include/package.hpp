@@ -13,7 +13,7 @@ public:
     Package(Package&) = delete;
     Package& operator=(Package&&) noexcept;
     Package& operator=(Package&) = delete;
-    ElementID get_id() {return id_;}
+    ElementID get_id() const {return id_;}
     ~Package();
 private:
     ElementID id_;

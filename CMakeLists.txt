@@ -13,15 +13,17 @@ set(SOURCE_FILES
         "src/package.cpp"
         "src/storage_types.cpp"
         "src/nodes.cpp"
+        "src/helpers.cpp"
         )
 
 add_executable(${PROJECT_NAME} ${SOURCE_FILES} "main.cpp")
 
-target_compile_definitions(${PROJECT_NAME} PUBLIC EXERCISE_ID=1)
+target_compile_definitions(${PROJECT_NAME} PUBLIC EXERCISE_ID=2)
 
 set(SOURCES_FILES_TESTS
         "test/test_package.cpp"
         "test/test_storage_types.cpp"
+        "test/test_nodes.cpp"
         )
 
 add_executable("${PROJECT_NAME}_test" ${SOURCE_FILES} ${SOURCES_FILES_TESTS} "test/main_gtest.cpp")
