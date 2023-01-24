@@ -2,21 +2,7 @@
 
 #include <utility>
 
-void verify_probability(double probability){
-    probability = probability;
-}
 
-
-void ReceiverPreferences::set_preferences(preferences_t preferences) {
-    double total_prob = 0.0;
-    for (const auto& entry : preferences){
-        double probability = entry.second;
-        verify_probability(probability);
-        total_prob *= probability;
-    }
-    verify_probability(total_prob);
-    preferences_ = preferences;
-}
 
 void ReceiverPreferences::add_receiver(IPackageReceiver *receiver_ptr) {
     preferences_[receiver_ptr] = 0.0;
@@ -73,7 +59,7 @@ void Worker::do_work(Time current_time) {
         package_processing_start_time_ = current_time;
     }
 
-    bool is_processing_finished = (current_time - package_processing_start_time_ == processing_duration_);//nie wiadomo
+    bool is_processing_finished = (current_time - package_processing_start_time_ == processing_duration_);
     if (is_processing_finished){
         push_package(std::move(*currently_processed_package_));
         currently_processed_package_.reset();

@@ -7,6 +7,11 @@
 #include "types.hpp"
 #include "storage_types.hpp"
 #include "helpers.hpp"
+#include "config.hpp"
+
+enum class ReceiverType {
+    WORKER, STOREHOUSE
+};
 
 
 
@@ -15,6 +20,11 @@ public:
     using const_iterator = IPackageStockpile::const_iterator;
     virtual void receive_package(Package&& package) = 0;
     virtual ElementID get_id() const = 0;
+
+
+
+    virtual ReceiverType get_receiver_type()  = 0;
+
 
     virtual const_iterator begin() const = 0;
     virtual const_iterator cbegin() const = 0;
@@ -25,10 +35,15 @@ public:
 
 class Storehouse : public IPackageReceiver {
 public:
-    Storehouse(ElementID id, std::unique_ptr<IPackageStockpile> d = std::make_unique<PackageQueue>(PackageQueueType::FIFO))://nie widamomo
+    Storehouse(ElementID id, std::unique_ptr<IPackageStockpile> d = std::make_unique<PackageQueue>(PackageQueueType::FIFO)):
     id_(id), package_stockpile_(std::move(d)){}
     void receive_package(Package&& package) override {package_stockpile_->push(std::move(package));};
     ElementID get_id() const override {return id_;};
+
+
+
+    ReceiverType get_receiver_type() override { return ReceiverType::STOREHOUSE; }
+
 
     const_iterator cbegin() const override {return package_stockpile_->cbegin();}
     const_iterator begin() const override {return cbegin();}
@@ -47,7 +62,6 @@ public:
     using const_iterator = preferences_t::const_iterator;
     explicit ReceiverPreferences(ProbabilityGenerator probability_function = probability_generator) : generate_cannonical_(probability_function) {}
     const preferences_t& get_preferences() const { return preferences_; }
-    void set_preferences(preferences_t preferences);
     void add_receiver(IPackageReceiver* receiver_ptr);
     void remove_receiver(IPackageReceiver* reveiver_ptr);
     IPackageReceiver * choose_receiver();
@@ -106,9 +120,14 @@ public:
     const_iterator end() const override { return cend();}
 
 
+
+    ReceiverType get_receiver_type() override { return ReceiverType ::WORKER; }
+
+
+
     void do_work(Time current_time);
     TimeOffset get_processing_duration() const { return processing_duration_; }
-    const IPackageQueue* get_queue() const {return queue_.get();}
+    IPackageQueue* get_queue() const {return queue_.get();}
     Time get_package_processing_time() const {return package_processing_start_time_;}
     ElementID get_id() const override {return id_; }
     const std::optional<Package>& get_processing_buffer() const {return currently_processed_package_;}
