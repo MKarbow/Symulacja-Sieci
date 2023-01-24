@@ -3,6 +3,7 @@
 
 #include "package.hpp"
 #include "storage_types.hpp"
+#include "helpers.hpp"
 #include <list>
 #include <memory>
 #include <map>
