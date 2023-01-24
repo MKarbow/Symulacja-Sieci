@@ -7,10 +7,12 @@
 #include "types.hpp"
 
 extern std::random_device rd;
-extern std::mt19937 rng;
+extern std::mt19937 rng(rd());
 
-extern double default_probability_generator();
+extern double default_probability_generator() {
+    return std::generate_canonical<double, 10>(rng);
+}
 
-extern ProbabilityGenerator probability_generator;
+ProbabilityGenerator probability_generator = default_probability_generator;
 
 #endif /* HELPERS_HPP_ */
