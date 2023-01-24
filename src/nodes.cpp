@@ -17,7 +17,21 @@ void ReceiverPreferences::add_receiver(IPackageReceiver* receiver) {
 
 
 void ReceiverPreferences::remove_receiver(IPackageReceiver* receiver) {
-    preferences_.erase(receiver);
-    for (auto n: preferences_)
-        n.second = 1 / preferences_.size();
+    auto it = preferences_.find(receiver);
+    bool was_found = (it != preferences_.end());
+    if (was_found == true) {
+        preferences_.erase(it);
+        for (auto n: preferences_)
+            n.second = 1 / preferences_.size();
+    }
+}
+
+IPackageReceiver* ReceiverPreferences::choose_receiver() {
+    double p = default_probability_generator();
+    double p1 = 0.0;
+    for (auto n : preferences_) {
+        p1 += n.second;
+        if (p <= p1)
+            return n.first;
+    }
 }
