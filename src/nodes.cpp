@@ -4,38 +4,40 @@
 
 
 
-void ReceiverPreferences::add_receiver(IPackageReceiver *receiver_ptr) {
-    preferences_[receiver_ptr] = 0.0;
+void ReceiverPreferences::add_receiver(IPackageReceiver* r)
+{
+    preferences_.emplace(std::make_pair(r, 0));
+    const double probability = 1.0 / preferences_.size();
+    for(auto& x : preferences_)
+        x.second = probability;
+}
 
-    for(auto& n : preferences_){
-        n.second = 1.0/preferences_.size();
+void ReceiverPreferences::remove_receiver(IPackageReceiver* r)
+{
+    if(preferences_.find(r) != preferences_.end())
+    {
+        preferences_.erase(r);
+        const double probability = 1.0 / preferences_.size();
+        for(auto& x : preferences_)
+            x.second = probability;
     }
 }
 
-void ReceiverPreferences::remove_receiver(IPackageReceiver *reveiver_ptr) {
-    auto elem_it = preferences_.find(reveiver_ptr);
+IPackageReceiver* ReceiverPreferences::choose_receiver()
+{
+    const double random_val = pg_();
+    double min_val = 0.0;
 
-    bool was_found = (elem_it != preferences_.end());
-    if (was_found){
-        preferences_.erase(elem_it);
-
-        for(auto& pref : preferences_){
-            pref.second = 1.0 / preferences_.size();
-        }
+    for(const auto& x : preferences_)
+    {
+        min_val += x.second;
+        if(random_val <= min_val)
+            return x.first;
     }
+
+    return nullptr;
 }
 
-IPackageReceiver* ReceiverPreferences::choose_receiver() {
-    double p = generate_cannonical_();
-    double cdf = 0.0;
-    for (const auto& pref : preferences_){
-        cdf+= pref.second;
-
-        if(p<= cdf){
-            return pref.first;
-        }
-    }
-}
 
 void PackageSender::send_package() {
     if (sending_buffer_){
@@ -52,17 +54,19 @@ void Ramp::deliver_goods(Time current_time) {
     }
 }
 
-void Worker::do_work(Time current_time) {
-    bool is_idle = ! currently_processed_package_;
-    if (is_idle && !queue_->empty()){
-        currently_processed_package_.emplace(std::move(queue_->pop()));
-        package_processing_start_time_ = current_time;
-    }
+void Worker::do_work(Time t)
+{
+    if(t >= package_processing_start_time + pd_)
+        send_package();
 
-    bool is_processing_finished = (current_time - package_processing_start_time_ == processing_duration_);
-    if (is_processing_finished){
-        push_package(std::move(*currently_processed_package_));
-        currently_processed_package_.reset();
-        package_processing_start_time_ = 0;
+    if(get_sending_buffer().has_value() == false && q_->size() != 0)
+    {
+        push_package(q_->pop());
+        package_processing_start_time = t;
     }
+}
+
+void Worker::receive_package(Package&& p)
+{
+    q_->push(std::move(p));
 }

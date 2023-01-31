@@ -56,24 +56,25 @@ private:
 };
 
 
-class ReceiverPreferences {
+class ReceiverPreferences
+{
 public:
     using preferences_t = std::map<IPackageReceiver*, double>;
     using const_iterator = preferences_t::const_iterator;
-    explicit ReceiverPreferences(ProbabilityGenerator probability_function = probability_generator) : generate_cannonical_(probability_function) {}
-    const preferences_t& get_preferences() const { return preferences_; }
-    void add_receiver(IPackageReceiver* receiver_ptr);
-    void remove_receiver(IPackageReceiver* reveiver_ptr);
-    IPackageReceiver * choose_receiver();
 
-    const_iterator cbegin() const { return preferences_.cbegin();}
-    const_iterator cend() const { return preferences_.cend();}
-    const_iterator begin() const { return cbegin();}
-    const_iterator end() const { return cend();}
+    ReceiverPreferences(ProbabilityGenerator pg = probability_generator) : pg_(pg) {}
+    void add_receiver(IPackageReceiver* r);
+    void remove_receiver(IPackageReceiver* r);
+    IPackageReceiver* choose_receiver();
+    const preferences_t & get_preferences() const { return preferences_; };
 
+    const_iterator begin() const { return preferences_.cbegin(); }
+    const_iterator end() const { return preferences_.cend(); }
+    const_iterator cbegin() const { return preferences_.cbegin(); };
+    const_iterator cend() const { return preferences_.cend(); };
 
 private:
-    ProbabilityGenerator generate_cannonical_ = probability_generator;
+    ProbabilityGenerator pg_;
     preferences_t preferences_;
 };
 
@@ -107,37 +108,34 @@ private:
 };
 
 
-class Worker : public PackageSender, public IPackageReceiver {
+class Worker : public PackageSender, public IPackageReceiver
+{
 public:
-    Worker(ElementID id, TimeOffset processing_duration, std::unique_ptr<IPackageQueue> queue_ptr)
-            : id_(id), processing_duration_(processing_duration), queue_(std::move(queue_ptr)) {}
+    Worker(ElementID id, TimeOffset pd, std::unique_ptr<IPackageQueue> q) : id_(id), pd_(pd), q_(std::move(q)), package_processing_start_time(0) {}
 
-    void receive_package(Package&& package) override {queue_->push(std::move(package));}
+    virtual void receive_package(Package&& p) override;
+    virtual ElementID get_id() const override { return id_; }
 
-    const_iterator cbegin() const override { return queue_->cbegin();}
-    const_iterator cend() const override { return queue_->cend();}
-    const_iterator begin() const override { return cbegin();}
-    const_iterator end() const override { return cend();}
+    void do_work(Time t);
+    TimeOffset get_processing_duration() const { return pd_; }
+    Time get_package_processing_start_time() const { return package_processing_start_time; }
 
+    virtual IPackageStockpile::const_iterator begin() const override { return q_->cbegin(); }
+    virtual IPackageStockpile::const_iterator end() const override { return q_->cend(); }
+    virtual IPackageStockpile::const_iterator cbegin() const override { return q_->cbegin(); }
+    virtual IPackageStockpile::const_iterator cend() const override { return q_->cend(); }
 
+    ReceiverType get_receiver_type() override { return ReceiverType::WORKER; }
+    IPackageQueue * get_queue() const { return q_.get(); }
 
-    ReceiverType get_receiver_type() override { return ReceiverType ::WORKER; }
-
-
-
-    void do_work(Time current_time);
-    TimeOffset get_processing_duration() const { return processing_duration_; }
-    IPackageQueue* get_queue() const {return queue_.get();}
-    Time get_package_processing_time() const {return package_processing_start_time_;}
-    ElementID get_id() const override {return id_; }
-    const std::optional<Package>& get_processing_buffer() const {return currently_processed_package_;}
-
+    Worker() = default;
+    Worker(Worker&&) = default;
+    Worker(Worker&) = delete;
 private:
     ElementID id_;
-    TimeOffset processing_duration_;
-    Time package_processing_start_time_ = 0;
-    std::optional<Package> currently_processed_package_;
-    std::unique_ptr<IPackageQueue> queue_;
-};
+    TimeOffset pd_;
+    std::unique_ptr<IPackageQueue> q_;
 
+    Time package_processing_start_time;
+};
 #endif //SIECI_NODES_HPP
